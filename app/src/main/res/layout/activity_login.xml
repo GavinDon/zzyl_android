@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context="com.nanyixuan.zzyl_andorid.view.activity.LoginActivity">
+
+
+    <include
+        android:id="@+id/login_title"
+        layout="@layout/app_title"
+        />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/iv_login_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        app:actualImageScaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_title"
+        app:placeholderImage="@mipmap/logo"
+        app:placeholderImageScaleType="centerCrop"
+        app:roundedCornerRadius="50dp"
+        />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraint_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/shape_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_login_icon"
+        app:layout_constraintVertical_bias="0.3"
+        >
+
+        <ImageView
+            android:id="@+id/iv_login_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/email"
+            />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/et_login_account"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@null"
+            android:hint="请输入帐号"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="11"
+            app:layout_constraintLeft_toRightOf="@id/iv_login_phone"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+        <View
+            android:id="@+id/divide"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:background="@color/grey_300"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_login_account"
+            />
+
+        <ImageView
+            android:id="@+id/iv_login_psw"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/password"
+            app:layout_constraintTop_toBottomOf="@id/divide"
+            />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/et_login_psw"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@null"
+            android:hint="请输入密码"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:maxLength="18"
+            app:layout_constraintLeft_toRightOf="@id/iv_login_psw"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divide"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:text="登录"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraint_login"
+        />
+
+    <TextView
+        android:id="@+id/tv_forget_psw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="忘记密码？"
+        android:textColor="@color/black_alpha_96"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_login"
+        />
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="点击注册"
+        android:textColor="@color/black_alpha_96"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_login"/>
+
+
+</android.support.constraint.ConstraintLayout>

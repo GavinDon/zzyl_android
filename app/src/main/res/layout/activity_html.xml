@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.nanyixuan.zzyl_andorid.view.activity.HtmlActivity">
+
+    <include
+        android:id="@+id/alipay_title"
+        layout="@layout/app_title"
+        />
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/alipay_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_alipay_notify"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="请使用手机自带截屏功能保存二维码，再打开支付宝客户端打开扫一扫选择相册，进行识别支付宝二维码来支付，支付完成点支付完成来查看支付结果"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/webView"
+
+        />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+        />
+
+    <com.nanyixuan.zzyl_andorid.widgets.SubmitButton
+        android:id="@+id/btn_paysuccess"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="支付完成"
+        app:btnNormalColor="@color/red_600"
+        app:btnAngle="0dp"
+        app:btnPressColor="@color/red_400"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_alipay_notify"
+        app:layout_constraintVertical_bias="1.0"
+        />
+
+    <com.nanyixuan.zzyl_andorid.widgets.SubmitButton
+        android:id="@+id/btn_payquestion"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="支付遇到问题"
+        app:btnNormalColor="@color/gray"
+        app:btnAngle="0dp"
+        app:btnPressColor="@color/red_50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_alipay_notify"
+        app:layout_constraintVertical_bias="1.0"
+        />
+
+
+</android.support.constraint.ConstraintLayout>

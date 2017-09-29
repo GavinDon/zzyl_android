@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:custom="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="16dp"
+              android:layout_marginRight="16dp"
+              android:background="@color/transparent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="dsfs"
+        android:textColor="@color/black_alpha_112"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/dialog_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/air_info"
+        android:textColor="@color/black_alpha_112"
+        android:textSize="16sp"
+        />
+
+    <com.nanyixuan.zzyl_andorid.numberprogressbar.NumberProgressBar
+        android:id="@+id/update_progress"
+        style="@style/NumberProgressBar_Passing_Green"
+        android:visibility="invisible"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
+
+        <com.nanyixuan.zzyl_andorid.widgets.SubmitButton
+            android:id="@+id/dialog_confirm"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="升级"
+            app:btnAngle="8dp"
+            app:btnNormalColor="@color/lightGreen"
+            app:btnPressColor="@color/pressGreen"
+            />
+
+        <com.nanyixuan.zzyl_andorid.widgets.SubmitButton
+            android:id="@+id/dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="忽略"
+            android:visibility="gone"
+            app:btnAngle="8dp"
+            app:btnNormalColor="@color/lightGreen"
+            app:btnPressColor="@color/pressGreen"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>

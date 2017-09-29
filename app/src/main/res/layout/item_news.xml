@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/simpleDraweeView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        fresco:actualImageScaleType="focusCrop"
+        fresco:layout_constraintBottom_toBottomOf="parent"
+        fresco:layout_constraintDimensionRatio="h,1:1"
+        fresco:layout_constraintLeft_toLeftOf="parent"
+        fresco:layout_constraintTop_toTopOf="parent"
+        fresco:layout_constraintVertical_bias="0.48"
+        fresco:placeholderImage="@mipmap/ic_launcher"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="2"
+        android:text="@string/default_news_title"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        fresco:layout_constraintBottom_toTopOf="@+id/guideline6"
+        fresco:layout_constraintHorizontal_bias="0.0"
+        fresco:layout_constraintLeft_toRightOf="@+id/simpleDraweeView"
+        fresco:layout_constraintRight_toRightOf="parent"
+        fresco:layout_constraintTop_toTopOf="parent"
+        fresco:layout_constraintVertical_bias="0.0" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        fresco:layout_constraintGuide_begin="53dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="53dp" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:ellipsize="end"
+        android:lines="5"
+        android:text="@string/default_news_content"
+        android:textSize="12sp"
+        fresco:layout_constraintBottom_toBottomOf="@+id/simpleDraweeView"
+        fresco:layout_constraintHorizontal_bias="0.0"
+        fresco:layout_constraintLeft_toLeftOf="@+id/tv_title"
+        fresco:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="5dp"
+        fresco:layout_constraintTop_toBottomOf="@+id/tv_title"
+        fresco:layout_constraintVertical_bias="0.0" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single"
+        >
+      <!--  <item
+            android:id="@+id/home"
+            android:icon="@mipmap/plant"
+            android:title="植物百科"/>-->
+        <item
+            android:id="@+id/trafficInfo"
+            android:icon="@mipmap/slide_traffic"
+            android:title="交通信息"/>
+        <item
+            android:id="@+id/route_recommend"
+            android:icon="@mipmap/slide_route"
+            android:title="线路推荐"/>
+        <item
+
+            android:id="@+id/my_order"
+            android:icon="@mipmap/ticket_slide"
+            android:title="我的门票"/>
+        <item
+            android:id="@+id/lost_found"
+            android:icon="@mipmap/slide_lost"
+            android:title="失物招领"/>
+        <!--<item-->
+            <!--android:id="@+id/flux_control"-->
+            <!--android:icon="@mipmap/slide_control"-->
+            <!--android:title="人流监控"/>-->
+      <!--  <item
+            android:id="@+id/smart_stop"
+            android:icon="@mipmap/slide_park"
+            android:title="智慧停车"/>-->
+   <!--     <item
+            android:id="@+id/online_buy"
+            android:icon="@mipmap/slide_onlin_buy"
+            android:title="网上购票"/>-->
+        <item
+            android:id="@+id/around_server"
+            android:icon="@mipmap/slide_arround_server"
+            android:title="周边服务"/>
+        <item
+            android:id="@+id/find_game"
+            android:icon="@mipmap/game"
+            android:title="寻根游戏"/>
+        <item
+            android:id="@+id/server_info"
+            android:icon="@mipmap/slide_server_info"
+            android:title="服务信息"/>
+        <item
+            android:id="@+id/user_center"
+            android:icon="@mipmap/slide_personal"
+            android:title="个人中心"/>
+    </group>
+</menu>

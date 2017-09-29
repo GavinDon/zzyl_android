@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_title" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/card01"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:minHeight="140dp"
+                android:minWidth="140dp"
+                fresco:actualImageScaleType="fitXY"
+                fresco:viewAspectRatio="2.2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+             />
+
+            <!-- <RadioGroup
+                 android:id="@+id/card01"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_marginEnd="8dp"
+                 android:layout_marginLeft="8dp"
+                 android:layout_marginRight="8dp"
+                 android:layout_marginStart="8dp"
+                 android:layout_marginTop="8dp"
+                 app:layout_constraintLeft_toLeftOf="parent"
+                 app:layout_constraintRight_toRightOf="parent"
+                 app:layout_constraintTop_toTopOf="parent">
+
+                 <android.support.v7.widget.AppCompatRadioButton
+                     android:id="@+id/ticket50"
+                     android:layout_width="match_parent"
+                     android:layout_height="180dp"
+                     android:background="@mipmap/ticket_50y"
+                     />
+
+                 <android.support.v7.widget.AppCompatRadioButton
+                     android:id="@+id/ticket90"
+                     android:layout_width="match_parent"
+                     android:layout_height="180dp"
+                     android:background="@mipmap/ticket_90y"
+                     android:visibility="gone"
+                     />
+
+                 <android.support.v7.widget.AppCompatRadioButton
+                     android:id="@+id/ticket60"
+                     android:layout_width="match_parent"
+                     android:layout_height="180dp"
+                     android:layout_marginBottom="8dp"
+                     android:layout_marginTop="8dp"
+                     android:background="@mipmap/ticket_60y"
+                     android:visibility="gone"
+                     />
+
+             </RadioGroup>-->
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_ticket_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:padding="4dp"
+                android:text="第十一届中国(郑州)国际园林博览会  普通票"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card01" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_ticket_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="￥60.00"
+                android:textColor="@color/pressGreen"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ticket_name" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint_state"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ticket_money">
+
+                <TextView
+                    android:id="@+id/state01"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:drawableLeft="@mipmap/weihao"
+                    android:gravity="center_vertical"
+                    android:text="入园保障"
+                    app:layout_constraintEnd_toStartOf="@+id/state02"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:id="@+id/state02"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:drawableLeft="@mipmap/weihao"
+                    android:gravity="center_vertical"
+                    android:text="微信专享"
+                    app:layout_constraintEnd_toStartOf="@+id/state03"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/state01" />
+
+                <TextView
+                    android:id="@+id/state03"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:drawableLeft="@mipmap/weihao"
+                    android:gravity="center_vertical"
+                    android:text="官方渠道"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/state02" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:id="@+id/ticket_divider"
+                android:layout_width="0dp"
+                android:layout_height="12dp"
+                android:background="@color/gray"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraint_state" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/garden_intro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ticket_divider" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvInputCardNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:text="证件号码"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/garden_intro" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:text="(门票将与您的证件关联)"
+                android:textColor="@color/pressGreen"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toRightOf="@+id/tvInputCardNum"
+                app:layout_constraintTop_toTopOf="@+id/tvInputCardNum"
+                app:layout_constraintBottom_toBottomOf="@+id/tvInputCardNum"/>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilIdCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                app:errorEnabled="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvInputCardNum">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/etIdCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789xX"
+                    android:hint="身份证号码"
+                    android:imeOptions="actionNext"
+                    android:maxLength="18"
+                    android:singleLine="true"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilAgainIdCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="16dp"
+                app:errorEnabled="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tilIdCard">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/etAgainIdCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789xX"
+                    android:hint="再次输入身份证号码"
+                    android:imeOptions="actionDone"
+                    android:maxLength="18"
+                    android:singleLine="true"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="我已阅读并同意购票条款"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@+id/card01"
+                app:layout_constraintRight_toRightOf="@+id/card01"
+                app:layout_constraintTop_toBottomOf="@+id/tilAgainIdCard" />
+
+            <View
+                android:id="@+id/ticket_divider2"
+                android:layout_width="0dp"
+                android:layout_height="12dp"
+                android:background="@color/gray"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+        <!--    <com.nanyixuan.zzyl_andorid.widgets.VerificationSeekBar
+                android:id="@+id/sb_progress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:maxHeight="45dp"
+                android:minHeight="45dp"
+                android:visibility="gone"
+                android:padding="1dp"
+                android:progress="0"
+                android:progressDrawable="@drawable/bg_seekbar"
+                android:thumb="@drawable/bg_seekbar_thumb"
+                android:thumbOffset="-1dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ticket_divider2" />-->
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint_youhui"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/ticket_divider2">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_ticket_paymoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:gravity="center_vertical"
+                    android:text="优惠支付￥60"
+                    android:textColor="@color/pressGreen"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <com.nanyixuan.zzyl_andorid.widgets.SubmitButton
+                    android:id="@+id/submitBtn"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="提交订单"
+                    android:textSize="18sp"
+                    app:btnAngle="0dp"
+                    app:btnNormalColor="#86C982"
+                    app:btnPressColor="#FF739E71"
+                    app:layout_constraintRight_toRightOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

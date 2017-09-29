@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:paddingBottom="2dp">
+
+
+
+
+        <TextView
+            android:id="@+id/ada_tv_subscriber_retain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="20"
+            android:textColor="@color/red_600"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ada_tv_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:text="剩余车位"
+            android:textColor="@color/grgray"
+            app:layout_constraintLeft_toLeftOf="@+id/ada_tv_subscriber_retain"
+            app:layout_constraintTop_toBottomOf="@+id/ada_tv_subscriber_retain" />
+
+        <TextView
+            android:id="@+id/ada_tv_subscriber_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="/100"
+            android:textColor="@color/grgray"
+            app:layout_constraintBottom_toBottomOf="@id/ada_tv_subscriber_retain"
+            app:layout_constraintLeft_toRightOf="@+id/ada_tv_subscriber_retain" />
+
+        <TextView
+            android:id="@+id/ada_tv_subscriber"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@color/lightGreen"
+            android:drawableTop="@mipmap/img_subs"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:text="预约车位"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ada_tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="城厢f"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@id/ada_tv_subscriber_total"
+            app:layout_constraintRight_toLeftOf="@id/ada_tv_subscriber"
+            app:layout_constraintTop_toTopOf="@id/ada_tv_subscriber_retain" />
+
+        <TextView
+            android:id="@+id/ada_tv_detail"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="dfsf"
+            android:textColor="@color/grgray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/ada_tv_subscriber_total"
+            app:layout_constraintRight_toLeftOf="@id/ada_tv_subscriber"
+            app:layout_constraintTop_toTopOf="@id/ada_tv_tv" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:background="@color/red_400"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ada_tv_subscriber" />
+
+
+
+</android.support.constraint.ConstraintLayout>

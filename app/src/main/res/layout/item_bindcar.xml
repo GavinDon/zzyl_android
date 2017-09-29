@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center_vertical"
+              android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/item_tv_bindcar_number"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="36dp"
+        android:gravity="center_vertical|right"
+        android:text="1、"
+        android:textSize="18sp"
+        android:padding="6dp"
+        android:textColor="@color/black"
+        />
+
+    <com.nanyixuan.zzyl_andorid.widgets.SubmitButton
+        android:id="@+id/item_carnum_standard"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginLeft="8dp"
+        android:gravity="center"
+        android:text="默认"
+        app:btnAngle="0dp"
+        android:textSize="16sp"
+        app:btnNormalColor="@color/lightGreen"
+        app:txtNormalColor="@color/white"
+
+
+        />
+
+    <ImageView
+        android:id="@+id/item_iv_close"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginLeft="16dp"
+        android:scaleType="centerInside"
+        android:src="@mipmap/close"
+
+        />
+
+</LinearLayout>

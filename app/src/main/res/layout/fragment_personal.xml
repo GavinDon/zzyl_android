@@ -1,0 +1,88 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="com.nanyixuan.zzyl_andorid.view.fragment.PersonalFragment">
+
+    <LinearLayout
+        android:id="@+id/titleBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#202628"
+        fresco:layout_constraintLeft_toLeftOf="parent"
+        fresco:layout_constraintRight_toRightOf="parent"
+        fresco:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_showSideMenu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:padding="15dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/back"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:text="@string/gerenzhongxin"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="6117dp" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#00000000"
+            tools:ignore="ContentDescription"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="6117dp" />
+
+    </LinearLayout>
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/btn_avatar"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/white"
+        fresco:placeholderImage="@mipmap/geren"
+        tools:ignore="ContentDescription"
+        fresco:layout_constraintLeft_toLeftOf="parent"
+        fresco:layout_constraintRight_toRightOf="parent"
+        fresco:layout_constraintDimensionRatio="w,1:1"
+        fresco:layout_constraintHorizontal_bias="0.501"
+        android:layout_marginTop="16dp"
+        fresco:layout_constraintTop_toBottomOf="@+id/titleBar" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:text="@string/click_avatar_login"
+        fresco:layout_constraintLeft_toLeftOf="parent"
+        fresco:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        fresco:layout_constraintTop_toBottomOf="@+id/btn_avatar"
+        fresco:layout_constraintHorizontal_bias="0.0" />
+
+    <ListView
+        android:id="@+id/listView"
+        tools:listitem="@android:layout/simple_list_item_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        fresco:layout_constraintTop_toBottomOf="@+id/tv_login"
+        fresco:layout_constraintLeft_toLeftOf="parent"
+        fresco:layout_constraintRight_toRightOf="parent"
+        fresco:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

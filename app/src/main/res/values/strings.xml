@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name">郑州园博园</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">郑州园博园</string>
+    <string name="map">地图</string>
+    <string name="tourRoute">线路</string>
+    <string name="default_news_title">这里是新闻标题这里是新闻标题这里是新闻标题这里是新闻标题这里是新闻标题</string>
+    <string name="default_news_content">这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容这里是新闻内容</string>
+    <string name="click_avatar_login">点击头像登陆</string>
+    <string name="shouye">应用首页</string>
+    <string name="yuanqudaolan">园区导览</string>
+    <string name="xianlutuijian">线路推荐</string>
+    <string name="xuniyouyuan">虚拟游园</string>
+    <string name="yuanbozixun">园博资讯</string>
+    <string name="zhiwubaike">植物百科</string>
+    <string name="zhihuitingche">智慧停车</string>
+    <string name="yuanboshangcheng">园博商城</string>
+    <string name="yuanquhudong">园区互动</string>
+    <string name="fuwuxinxi">服务信息</string>
+    <string name="gerenzhongxin">个人中心</string>
+    <string name="title_encyclopedia">植物百科</string>
+    <string name="lishizuji">历史足迹</string>
+    <string name="zhuyaochangguan">主要场馆</string>
+    <string name="tousujianyi">投诉建议</string>
+    <string name="qingxuanzenindemenpiao">请选择您的门票</string>
+    <string name="yuanqumenpiao">园区门票</string>
+    <string name="xuanzedaofangriqi">选择到访日期</string>
+    <string name="jinri">今日</string>
+    <string name="daofangriqi">选择到访日期</string>
+    <string name="um_appkey">599104f3a40fa308900021ef</string>
+    <string name="baidu_appkey">eRiPdPVGtGHuoP9p1GFcXd3orC3khXCQ</string>
+    <string name="phone_number">0371-56562017</string>
+
+    <string name="ticket_detail">
+   全价票：1.5米以上、65岁以下、无证件购票者.\n
+免票： 6周岁（含6周岁）以下或身高1.20米（含 1.20米）以下的儿童（需成人陪同）、65岁以上老人、 残疾人、现役军人、军队离退休干部凭本人有效证件 （寿星证、残疾证、军官证、文职干部证、士兵证、学 员证）换取免票（老人及残疾人建议有陪同）\n
+售出门票当日有效，一张门票只可入园一次，副劵自行 撕毁即视无效。\n
+售出门票概不退换，门票遗失，自行负责。\n
+门票对园区内需另行付费的项目无效，门票可作为商业 发票及报销凭证使用。\n
+请游客在园区规定的营业时间内持有效门票入园。\n
+钱票请当面点清。\n
+公园可能因恶劣天气、更新改选、特殊活动、不可抗力 等原因取消表演或关闭园区。\n
+本门票最终解释权属郑州园博会所有。
+
+    </string>
+    <!--购票须知!-->
+    <string name="buy_notice">
+  普通票：适用于所有游客。\n
+网络平日票：仅可在园博会官方网络渠道购买，需提前购买，仅限非节假日使用。售出门票当日有效，一张门票只可入园一次，副劵自行 撕毁即视无效。\n
+网络假日票：仅可在园博会官方网络渠道购买，需提前购买。\n
+优惠票：仅限60-69周岁老人及在校学生（不含成人教育与再教育）持有效证件购票。\n
+免票： 1.4米以下儿童（需有家长陪同），残疾人、军人、70周岁（含）以上老人持有效证件。\n
+售出门票概不退换，门票遗失，自行负责。\n
+请游客在园区规定的开放时间内持有效门票入园。\n
+钱票请当面点清。\n
+园区可能调整开放时间和活动安排，或采取临时限制入园措施，届时请以公告为准。\n
+本门票最终解释权归郑州园博园所有。\n
+
+    </string>
+    <!--温馨提示!-->
+    <string name="prompt">
+  优惠票：身高1.4m以上（不含1.4m）的儿童及中小学生，全日制本、专科生，未成年人及60岁以上老人。优惠票需在园博会现场购买，购票入园时须出示有效身份证件。\n
+爱心票：身高不超过1.4米（含1.4m）的儿童（需有成人陪同）、70岁以上老人、残疾人、中国现役军人凭本人有效证件（残疾证、军官证、文职干部证、士官证、士兵证、学员证）免费入园（老人及残疾人建议有陪同）。\n
+门票限同一人、同一日内进入郑州园博园使用。\n
+售出门票概不退换，门票遗失，自行负责。\n
+请游客在园区规定的营业时间内持有效门票入园。\n
+钱票请当面点清。\n
+如遇特殊情况，将按有关规定调整园区、展馆开放时间和活动安排，或采取临时限制入园措施，届时请以公告为准。\n
+本门票最终解释权属郑州园博会所有。\n
+
+    </string>
+    <string name="traffic_info">
+    790、375、336路直达园博园东门;\n792路经停园博园东门;\n207、216、603、730路经停园博园北门。
+   </string>
+    <string name="traffic_info2">
+        可乘座班次: 600、611、612、621、623、626、627、628、629、630、631、632、635;\n园博园1号线:始祖路公交站-始祖路-梁州大道-园博园A区\n园博园2号线:郑州机场-迎宾大道-华夏大道-金港大道-S102省道-梁州大道-园博园A区\n园博园3号线:苑陵路公交站-苑陵路-涟水路-梁州大道-园博园B区
+
+   </string>
+
+    <string name="air_info">
+   上午8:00-10:00 北京飞住上海\n下午2:12-3:25  西安飞住长沙。
+   </string>
+    <string name="subway_info">郑州地铁城郊线\n轻轨:\nC2835,C2977,C2837,C2979,C2839,C2841
+   </string>
+    <string name="car_digits">
+        qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890
+    </string>
+
+</resources>

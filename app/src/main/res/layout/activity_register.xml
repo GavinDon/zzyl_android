@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:layout_gravity="center"
+                                             android:background="@color/white"
+                                             android:orientation="vertical">
+
+    <include
+        android:id="@+id/register_title"
+        layout="@layout/app_title"
+        />
+
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/et_register_phone"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="请输入手机号码"
+        android:inputType="number"
+        android:maxLength="11"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_title"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_bias="0.0"/>
+
+    <ImageView
+        android:id="@+id/btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@color/transparent"
+        android:scaleType="centerInside"
+        android:src="@mipmap/close"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_title"
+        />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/et_register_sms"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="填写验证码"
+        android:inputType="number"
+        android:maxLength="5"
+        android:imeOptions="actionNext"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_register_phone"/>
+
+    <TextView
+        android:id="@+id/tv_sms_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="获取验证码"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/et_register_sms"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/et_register_sms"
+        />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/et_register_psw"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        android:maxLength="18"
+        android:imeOptions="actionNext"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_register_sms"
+        />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/et_register_againPsw"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:imeOptions="actionDone"
+        android:hint="请再次输入密码"
+        android:maxLength="18"
+        android:inputType="textPassword"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_register_psw"
+        />
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_register_againPsw"
+        />
+
+</android.support.constraint.ConstraintLayout>

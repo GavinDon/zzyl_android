@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.nanyixuan.zzyl_andorid.view.activity.SmartStopCar">
+
+    <include
+        android:id="@+id/smart_title"
+        layout="@layout/app_title" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint_weather"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/weather_bg"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <ImageView
+                    android:id="@+id/weather_background"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/shape_weather"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/iv_weather_icon"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:layout_marginLeft="10dp"
+                    app:layout_constraintBottom_toBottomOf="@id/weather_background"
+                    app:layout_constraintLeft_toLeftOf="@id/weather_background"
+                    app:layout_constraintTop_toTopOf="@id/weather_background"
+                    fresco:failureImageScaleType="centerInside"
+                    fresco:placeholderImage="@mipmap/weather"
+                    fresco:placeholderImageScaleType="fitCenter" />
+
+                <TextView
+                    android:id="@+id/tv_weather_T"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="18℃"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    app:layout_constraintLeft_toRightOf="@id/iv_weather_icon"
+                    app:layout_constraintTop_toTopOf="@id/iv_weather_icon" />
+
+                <TextView
+                    android:id="@+id/tv_weather_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="晴转多云"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/weather_background"
+                    app:layout_constraintLeft_toRightOf="@id/iv_weather_icon"
+                    app:layout_constraintTop_toBottomOf="@id/tv_weather_T" />
+
+                <TextView
+                    android:id="@+id/tv_car_wash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="洗车指数:较适宜"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_weather_state"
+                    app:layout_constraintLeft_toRightOf="@id/tv_weather_state"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_weather_state" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint_banner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/banner_shape"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraint_weather">
+
+                <ImageView
+                    android:id="@+id/ad_img"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/homepage_button_news_icon"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ad_up"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/up"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <com.nanyixuan.zzyl_andorid.widgets.MarqueeView
+                    android:id="@+id/marqueeView"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintLeft_toRightOf="@+id/ad_img"
+                    app:layout_constraintRight_toLeftOf="@+id/ad_up"
+                    app:mvInterval="3000"
+                    app:mvSingleLine="true"
+                    app:mvTextColor="@android:color/black"
+                    app:mvTextSize="14sp" />
+
+                <LinearLayout
+                    android:id="@+id/ll_banner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toRightOf="@+id/ad_img"
+                    app:layout_constraintRight_toLeftOf="@+id/ad_up"
+                    app:layout_constraintTop_toBottomOf="@+id/marqueeView" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint_bindcar_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/white_alpha_176"
+                android:padding="4dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraint_banner">
+
+                <ImageView
+                    android:id="@+id/line_bindtxt"
+                    android:layout_width="16dp"
+                    android:layout_height="0dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/line"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:maxLines="1"
+                    android:text="车牌绑定"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toRightOf="@id/line_bindtxt" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint_bindcar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/shape_bindcar_bg"
+                android:padding="8dp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraint_bindcar_txt">
+
+                <TextView
+                    android:id="@+id/tv_yua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="6dp"
+                    android:drawableRight="@mipmap/down"
+                    android:gravity="center_vertical"
+                    android:text="豫"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/iv_line"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="6dp"
+                    android:background="@color/gray"
+                    android:padding="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_yua"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.nanyixuan.zzyl_andorid.widgets.SubmitButton
+                    android:id="@+id/btn_bind"
+                    android:layout_width="70dp"
+                    android:layout_height="35dp"
+                    android:gravity="center"
+                    android:minWidth="70dp"
+                    android:text="绑定"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:btnAngle="4dp"
+                    app:btnNormalColor="@color/lightGreen"
+                    app:btnPressColor="@color/pressGreen"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:txtNormalColor="@color/white" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/et_bindcar"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@null"
+                    android:hint="输入车牌号绑定车牌"
+                    android:maxLength="6"
+                    android:digits="@string/car_digits"
+                    android:textColor="@color/red_500"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/iv_line"
+                    app:layout_constraintRight_toLeftOf="@id/btn_bind"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraint_has_bind"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraint_bindcar">
+
+                <TextView
+                    android:id="@+id/tv_hint_hasbind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="已绑定车牌(最多绑定3辆车)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/ll_bindcar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:gravity="right"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_hint_hasbind" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_bind_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_hint_hasbind" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_pay_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@mipmap/weihao"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:text="付费规则"
+                android:textColor="@color/grgray"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraint_has_bind" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <com.nanyixuan.zzyl_andorid.widgets.SubmitButton
+                android:id="@+id/btn_subscriber"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_margin="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="预约车位"
+                android:textSize="18sp"
+                app:btnAngle="8dp"
+                app:btnNormalColor="@color/lightGreen"
+                app:btnPressColor="@color/pressGreen"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/tv_pay_guide"
+                app:txtNormalColor="@color/white" />
+
+            <com.nanyixuan.zzyl_andorid.widgets.SubmitButton
+                android:id="@+id/btn_pay"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_margin="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="停车缴费"
+                android:textSize="18sp"
+                app:btnAngle="8dp"
+                app:btnNormalColor="@color/blue_700"
+                app:btnPressColor="@color/blue_400"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/guideline"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_pay_guide"
+                app:txtNormalColor="@color/white" />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>
