@@ -52,7 +52,6 @@ public class TicketClassActivity extends BaseActivity implements BaseQuickAdapte
                     public void onNext(SaleTicketBean ticketClassBean) throws IOException {
                         if (!ticketClassBean.isFlag()) {
                             ToastUtils.showShort(ticketClassBean.getMsg());
-                            LogUtils.i(ticketClassBean.getList().get(0).getImgurl());
                         } else {
                             mAdapter.setNewData(ticketClassBean.getList());
                         }

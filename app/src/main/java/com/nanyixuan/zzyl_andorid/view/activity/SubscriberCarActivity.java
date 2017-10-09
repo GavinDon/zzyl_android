@@ -1,5 +1,6 @@
 package com.nanyixuan.zzyl_andorid.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -91,6 +92,7 @@ public class SubscriberCarActivity extends BaseActivity implements BaseQuickAdap
                             }.getType());
                             mAdapter.setNewData(findParksBean);
                         }else if (respCommon.getRetCode().equals("112")){
+                            //未获取到token
                              ToastUtils.showShort("网络繁忙,请稍后再试");
                         }
                     }
@@ -153,7 +155,7 @@ public class SubscriberCarActivity extends BaseActivity implements BaseQuickAdap
                                             }
                                         });
                             } else {
-                                ToastUtils.showShort("预约失败,请关闭页面重新打开。。");
+                                ToastUtils.showShort("预约失败,请关闭当前页面重新打开");
                             }
 
                         }
@@ -161,10 +163,9 @@ public class SubscriberCarActivity extends BaseActivity implements BaseQuickAdap
 
                     @Override
                     public void onError(String msg) {
-
+                        ToastUtils.showShort(msg);
                     }
                 }));
     }
-
 
 }

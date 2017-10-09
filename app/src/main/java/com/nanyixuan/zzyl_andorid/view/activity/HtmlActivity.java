@@ -7,6 +7,7 @@ import android.webkit.WebView;
 
 import com.nanyixuan.zzyl_andorid.R;
 import com.nanyixuan.zzyl_andorid.base.BaseActivity;
+import com.nanyixuan.zzyl_andorid.widgets.SubmitButton;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -17,6 +18,13 @@ public class HtmlActivity extends BaseActivity {
     WebView mWebView;
     private String strUrl;
 
+    @BindView(R.id.btn_paysuccess)
+    SubmitButton  btnSuccess;
+    @BindView(R.id.btn_payquestion)
+    SubmitButton btnQuestion;
+
+    private   boolean  isCarPay;
+
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -24,8 +32,13 @@ public class HtmlActivity extends BaseActivity {
         setTitle("支付宝二维码");
         mWebView.getSettings().setJavaScriptEnabled(true);
         strUrl = getIntent().getStringExtra("url");
+        isCarPay=getIntent().getBooleanExtra("isCarPay",false);
         if (strUrl != null) {
             mWebView.loadUrl(strUrl);
+        }
+        if (isCarPay){
+            btnSuccess.setVisibility(View.GONE);
+            btnQuestion.setVisibility(View.GONE);
         }
     }
 
@@ -33,10 +46,10 @@ public class HtmlActivity extends BaseActivity {
     public void onclick(View v) {
         switch (v.getId()) {
             case R.id.btn_paysuccess:
-                gotoActivity(MainActivity.class,true);
+                gotoActivity(OrderListActivity.class,true);
                 break;
             case R.id.btn_payquestion:
-                gotoActivity(MainActivity.class,true);
+                gotoActivity(OrderListActivity.class,true);
                 break;
         }
     }

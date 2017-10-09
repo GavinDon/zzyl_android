@@ -3,6 +3,7 @@ package com.nanyixuan.zzyl_andorid.view.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatEditText;
@@ -75,7 +76,11 @@ public class GardenTicketActivity extends BaseActivity {
     @BindView(tv_ticket_paymoney)
     TextView tvyMoney;
     @BindView(tv_ticket_money)
-    TextView tvMoney;
+    TextView tvMoney;//优惠价
+    @BindView(R.id.tv_underline_money)
+    TextView underLineMoney;  //原价
+    @BindView(R.id.tv_ticket_userTime)
+    TextView tvUserTime; //票使用时间
     @BindView(R.id.garden_intro)
     RecyclerView mRecyclerView;
     @BindView(R.id.tv_ticket_name)
@@ -111,7 +116,10 @@ public class GardenTicketActivity extends BaseActivity {
             ticketDrawView.setImageURI(ticketInfoBean.getImgurltwo());
             tvTicketName.setText(ticketInfoBean.getTicketname());
             tvyMoney.setText("优惠支付:￥" + ticketInfoBean.getXprice());
-            tvMoney.setText("￥" + ticketInfoBean.getYprice());
+            tvMoney.setText("￥" + ticketInfoBean.getXprice());
+            underLineMoney.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG|Paint.ANTI_ALIAS_FLAG);
+            underLineMoney.setText("￥" + ticketInfoBean.getYprice());
+            tvUserTime.setText(ticketInfoBean.getExplain());
         }
     }
 
@@ -231,12 +239,12 @@ public class GardenTicketActivity extends BaseActivity {
         if (first && second) {
             if (etIdCard.getText().toString().equalsIgnoreCase(etAgainIdCard.getText().toString())) {
                 final SimpleDialog mSimpleDialog = new SimpleDialog(this);
-                mSimpleDialog.setContentText("确定下单？")
+                mSimpleDialog.setContentText(ticketInfoBean.getExplain())
                         .showCancelButton(true)
                         .setConfirmClickListener(new SimpleDialog.OnSweetClickListener() {
                             @Override
                             public void onClick(SimpleDialog simpleDialog) {
-                                idcard=etIdCard.getText().toString();
+                                idcard = etIdCard.getText().toString();
                                 generateOrder();
                                 mSimpleDialog.dismiss();
                             }

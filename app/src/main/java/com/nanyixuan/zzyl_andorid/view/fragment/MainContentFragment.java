@@ -492,8 +492,8 @@ public class MainContentFragment extends BaseFragment implements MainContentFrag
 //                ToastUtils.showShort("720全景正在努力开发中。");
                 break;
             case 6: //智慧停车
-//                gotoActivity(SmartStopCar.class);
-                ToastUtils.showShort("停车场还未开放");
+                gotoActivity(SmartStopCar.class);
+//                ToastUtils.showShort("停车场还未开放");
                 break;
             case 7: //投诉建议
                 setIntentData(Constant.URL.COMPLAINT_ADVICE);
