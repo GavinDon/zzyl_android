@@ -1,18 +1,15 @@
 package com.nanyixuan.zzyl_andorid.view.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.reflect.TypeToken;
-import com.nanyixuan.zzyl_andorid.MyApplication;
 import com.nanyixuan.zzyl_andorid.R;
 import com.nanyixuan.zzyl_andorid.api.Constant;
 import com.nanyixuan.zzyl_andorid.api.newapi.MySubscriber;
@@ -24,22 +21,15 @@ import com.nanyixuan.zzyl_andorid.bean.FindParksBean;
 import com.nanyixuan.zzyl_andorid.bean.LoginBean;
 import com.nanyixuan.zzyl_andorid.bean.RespCommon;
 import com.nanyixuan.zzyl_andorid.utils.JsonUtil;
-import com.nanyixuan.zzyl_andorid.utils.MyTools;
 import com.nanyixuan.zzyl_andorid.view.adapter.SubscriberCarInfoAdapter;
 import com.nanyixuan.zzyl_andorid.widgets.SimpleDialog;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import butterknife.BindView;
-import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 import static com.nanyixuan.zzyl_andorid.utils.JsonUtil.fromJson;
