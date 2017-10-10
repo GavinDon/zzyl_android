@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nanyixuan.zzyl_andorid.view.activity.WelcomeActivity">
+    tools:context="com.nanyixuan.zzyl_andorid.view.activity.SplashActivity">
 
     <com.youth.banner.Banner
         android:id="@+id/welcome_banner"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:image_scale_type="fit_xy"
+        app:indicator_height="0dp"
+        app:indicator_width="0dp"
+        app:is_auto_play="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:is_auto_play="false"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
+        android:id="@+id/tv_enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="进入"
+        android:layout_marginBottom="60dp"
+        android:text="进入郑州园博园"
+        android:textColor="@color/red_200"
+        android:textSize="18sp"
         android:visibility="gone"
-
+        android:background="@drawable/shape_enter_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:padding="4dp"
         />
 
 

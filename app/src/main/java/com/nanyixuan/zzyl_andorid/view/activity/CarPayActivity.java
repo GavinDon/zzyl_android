@@ -2,7 +2,6 @@ package com.nanyixuan.zzyl_andorid.view.activity;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,9 +11,6 @@ import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.nanyixuan.zzyl_andorid.R;
-import com.nanyixuan.zzyl_andorid.api.ApiManager;
-import com.nanyixuan.zzyl_andorid.api.ApiObserver;
-import com.nanyixuan.zzyl_andorid.api.Constant;
 import com.nanyixuan.zzyl_andorid.api.newapi.MySubscriber;
 import com.nanyixuan.zzyl_andorid.api.newapi.RetrofitHelper;
 import com.nanyixuan.zzyl_andorid.api.newapi.SubCallback;

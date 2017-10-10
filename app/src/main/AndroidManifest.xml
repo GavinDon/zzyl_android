@@ -16,7 +16,7 @@
     <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 
     <!-- brightBeacon -->
@@ -53,7 +53,7 @@
             android:value="3bc62437837a35857a20cb5dd158c654"/>
 
         <activity
-            android:name=".view.activity.FullscreenActivity"
+            android:name=".view.activity.SplashActivity"
             android:noHistory="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -62,13 +62,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.WelcomeActivity">
-        </activity>
+        <activity
+            android:name=".view.activity.FullscreenActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".wxapi.WXPayEntryActivity"
             android:exported="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
             android:name=".view.activity.MainActivity"
             android:launchMode="singleTop"
@@ -153,8 +154,8 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activity.OrderListActivity"
-            android:screenOrientation="portrait"
             android:launchMode="singleTask"
+            android:screenOrientation="portrait"
             />
 
     </application>
