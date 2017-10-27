@@ -22,7 +22,7 @@ public class SubscriberCarInfoAdapter extends BaseQuickAdapter<FindParksBean, Ba
 
     @Override
     protected void convert(BaseViewHolder helper, FindParksBean item) {
-        helper.setText(R.id.ada_tv_subscriber_retain, String.valueOf(item.getBespeaknum()))
+        helper.setText(R.id.ada_tv_subscriber_retain, String.valueOf(item.getRealnum()))
                 .setText(R.id.ada_tv_subscriber_total,"/"+item.getTotalnum())
                 .setText(R.id.ada_tv_title,item.getParkname())
                 .setText(R.id.ada_tv_detail,item.getParklocation())

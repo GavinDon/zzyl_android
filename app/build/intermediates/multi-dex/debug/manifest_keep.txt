@@ -1,0 +1,3 @@
+# Referenced at E:\Android\studio\workspace_studio\zzyl_android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:47
+-keep class com.nanyixuan.zzyl_andorid.MyApplication { <init>(...); }
+

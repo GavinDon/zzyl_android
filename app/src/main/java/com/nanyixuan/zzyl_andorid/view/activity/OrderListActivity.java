@@ -79,7 +79,7 @@ public class OrderListActivity extends BaseActivity implements BaseQuickAdapter.
      */
 
     private void createRefunds(AllOrderBean orderBean, final int position) {
-        final Map<String, String> params = new HashMap();
+        final Map<String, String> params = new HashMap<>();
         params.put("userId", orderBean.getUser_id());
         params.put("orderId", orderBean.getId());
         params.put("identityCode", orderBean.getIdentity_code());

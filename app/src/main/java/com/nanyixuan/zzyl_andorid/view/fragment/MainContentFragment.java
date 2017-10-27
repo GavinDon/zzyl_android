@@ -45,15 +45,14 @@ import com.nanyixuan.zzyl_andorid.view.activity.AccountInfoActivity;
 import com.nanyixuan.zzyl_andorid.view.activity.LoginActivity;
 import com.nanyixuan.zzyl_andorid.view.activity.OrderListActivity;
 import com.nanyixuan.zzyl_andorid.view.activity.PersonalActivity;
+import com.nanyixuan.zzyl_andorid.view.activity.QRCustomUiActivity;
 import com.nanyixuan.zzyl_andorid.view.activity.ServiceActivity;
-import com.nanyixuan.zzyl_andorid.view.activity.SmartStopCar;
 import com.nanyixuan.zzyl_andorid.view.activity.TicketClassActivity;
 import com.nanyixuan.zzyl_andorid.view.activity.UrlContentActivity;
 import com.nanyixuan.zzyl_andorid.view.activity.traffic.TrafficInfoActivity;
 import com.nanyixuan.zzyl_andorid.view.adapter.HomeGridAdapter;
 import com.nanyixuan.zzyl_andorid.widgets.MarqueeView;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.Transformer;
@@ -66,7 +65,6 @@ import butterknife.OnClick;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 import static com.nanyixuan.zzyl_andorid.utils.JsonUtil.fromJson;
@@ -382,7 +380,7 @@ public class MainContentFragment extends BaseFragment implements MainContentFrag
                     @Override
                     public void onNext(Boolean aBoolean) {
                         if (aBoolean) {
-                            startActivityForResult(new Intent(MainContentFragment.this.getActivity(), CaptureActivity.class), Constant.REQUEST_CODE);
+                            startActivityForResult(new Intent(MainContentFragment.this.getActivity(), QRCustomUiActivity.class), Constant.REQUEST_CODE);
                         } else {
                             Toast.makeText(MainContentFragment.this.getActivity(), "此功能需要摄像头权限。", Toast.LENGTH_SHORT).show();
                         }
@@ -492,8 +490,8 @@ public class MainContentFragment extends BaseFragment implements MainContentFrag
 //                ToastUtils.showShort("720全景正在努力开发中。");
                 break;
             case 6: //智慧停车
-                gotoActivity(SmartStopCar.class);
-//                ToastUtils.showShort("停车场还未开放");
+//                gotoActivity(SmartStopCar.class);
+                ToastUtils.showShort("停车场还未开放");
                 break;
             case 7: //投诉建议
                 setIntentData(Constant.URL.COMPLAINT_ADVICE);

@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 import com.blankj.utilcode.util.FragmentUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.nanyixuan.zzyl_andorid.R;
 import com.nanyixuan.zzyl_andorid.api.Constant;
@@ -43,10 +44,13 @@ public class MainActivity extends BaseActivity implements MainActivityController
     protected void initView(Bundle savedInstanceState) {
         MainPresenter.init(this);
         showFragment(MainContentFragment.TAG, MainContentFragment.newInstance());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            beacon = new BeaconUtil(MainActivity.this);
-            checkBluetoothValid();
+        if (SPUtils.getInstance().getBoolean(Constant.SP_MSG_PUSH,true)) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                beacon = new BeaconUtil(MainActivity.this);
+                checkBluetoothValid();
+            }
         }
+
     }
 
     @Override

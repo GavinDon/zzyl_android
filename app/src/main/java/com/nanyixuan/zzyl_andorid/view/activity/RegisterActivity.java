@@ -35,7 +35,6 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
@@ -98,7 +97,7 @@ public class RegisterActivity extends BaseActivity {
     private void getSmsCode() {
         countDownTime(60); //倒计时60s
         ApiManager.mRetrofit.create(ApiService.class)
-                .getSms(etRegisterPhone.getText().toString(), MyTools.noneStr())
+                .getSms(etRegisterPhone.getText().toString(), String.format(" 您申请的验证码为:%s ,请于十分钟内输入使用。温馨提醒：网络购票后，请务必携带二代身份证刷卡入园。",MyTools.noneStr()))
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

@@ -35,10 +35,11 @@ public class Constant {
     public static final String SP_PSW = "password";
     public static final String SP_USER_INFO = "userInfo"; //用户信息
     public static final String SP_LOGIN = "isLogin"; //是否已经登录
+    public static final String SP_MSG_PUSH = "toggleMsgPush"; //是否推送消息
+    public static final String SP_GPS = "toggleGps"; //是否打开定位
 
     public static final String UPDATE_URL = "updateUrl"; //更新地址
     public static final String UPDATE_PROGRESS = "com.update.progress"; //apk下载进度广播
-
 
 
     public static class URL {

@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.KeyboardUtils;
-import com.blankj.utilcode.util.RegexUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -49,10 +48,7 @@ import java.util.List;
 import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 import static com.nanyixuan.zzyl_andorid.utils.JsonUtil.fromJson;
@@ -183,15 +179,19 @@ public class SmartStopCar extends BaseActivity {
                     //如果没有登录跳转登陆界面
                     gotoActivity(LoginActivity.class);
                 } else {
-                    Bundle bundle = new Bundle();
-                    for (int i = 0; i < mAdapter.getItemCount(); i++) {
-                        //取出默认选中的车牌号来进行预约
-                        if (mAdapter.getData().get(i).getIs_check().equals("1")) {
-                            strCarNum = mAdapter.getData().get(i).getCar_num();
+                    if (mAdapter.getItemCount() > 0) {
+                        for (int i = 0; i < mAdapter.getItemCount(); i++) {
+                            //取出默认选中的车牌号来进行预约
+                            if (mAdapter.getData().get(i).getIs_check().equals("1")) {
+                                strCarNum = mAdapter.getData().get(i).getCar_num();
+                            }
                         }
+                        Bundle bundle = new Bundle();
+                        bundle.putString("carNum", strCarNum);
+                        gotoActivity(SubscriberCarActivity.class, false, bundle);
+                    }else {
+                        ToastUtils.showShort("请您绑定默认车辆");
                     }
-                    bundle.putString("carNum", strCarNum);
-                    gotoActivity(SubscriberCarActivity.class, false, bundle);
                 }
                 break;
             case R.id.btn_bind:

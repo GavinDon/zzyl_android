@@ -1,7 +1,5 @@
 package com.nanyixuan.zzyl_andorid.view.activity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -13,7 +11,6 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -37,7 +34,6 @@ import com.nanyixuan.zzyl_andorid.utils.ValidateUtil;
 import com.nanyixuan.zzyl_andorid.view.adapter.RecyclerAdapter;
 import com.nanyixuan.zzyl_andorid.widgets.SimpleDialog;
 import com.nanyixuan.zzyl_andorid.widgets.SubmitButton;
-import com.nanyixuan.zzyl_andorid.widgets.VerificationSeekBar;
 
 import java.io.IOException;
 import java.util.ArrayList;

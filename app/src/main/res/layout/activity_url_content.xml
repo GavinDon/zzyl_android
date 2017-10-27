@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F0F0F0"
-    tools:context="com.nanyixuan.zzyl_andorid.view.activity.UrlContentActivity">
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:background="#F0F0F0"
+                                             tools:context="com.nanyixuan.zzyl_andorid.view.activity.UrlContentActivity">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/ll_url_title"
@@ -14,7 +14,8 @@
         android:background="@color/titleColor"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="0dp">
 
         <ImageButton
             android:id="@+id/ib_qrcode"
@@ -25,7 +26,8 @@
             android:scaleType="centerInside"
             android:src="@mipmap/qr_code"
             app:layout_constraintHorizontal_bias="0.96"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteY="81dp"/>
 
         <TextView
             android:id="@+id/tv_url_back"
@@ -42,7 +44,7 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/tv_url_close"
@@ -58,7 +60,7 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/tv_url_back"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/tv_url_title"
@@ -74,7 +76,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -131,39 +133,54 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll_url_title"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"/>
 
-    <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/ll_loading"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_url_title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:indicatorName="TriangleSkewSpinIndicator"
-        app:indicatorColor="@color/lightGreen"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/ll_url_title"
+        >
+
+        <ImageView
+            android:id="@+id/iv_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:src="@mipmap/loading_zz"
+            />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/lightGreen"
+            app:indicatorName="BallPulse"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_error"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableTop="@mipmap/error_pic"
+        android:gravity="center"
+        android:text="sorry 出错了!!"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_url_title"
         />
-   <TextView
-       android:id="@+id/tv_error"
-       android:layout_width="0dp"
-       android:layout_height="wrap_content"
-       app:layout_constraintLeft_toLeftOf="parent"
-       app:layout_constraintRight_toRightOf="parent"
-       app:layout_constraintTop_toBottomOf="@id/ll_url_title"
-       android:layout_marginBottom="0dp"
-       android:layout_marginTop="40dp"
-       android:textSize="20sp"
-      android:drawableTop="@mipmap/error_pic"
-       android:text="sorry 出错了!!"
-       android:textStyle="bold"
-       android:gravity="center"
-       android:visibility="gone"
-       />
-
-
-
-
 
 
 </android.support.constraint.ConstraintLayout>

@@ -10,11 +10,11 @@ public class FindParksBean {
 
     /**
      * parklocation : 经三路财富广场8号楼
-     * realnum : 123
+     * realnum : 123      剩余车位
      * parkposition : 113.692169,34.782997
-     * realbespeaknum : 59
-     * totalnum : 200
-     * bespeaknum : 60
+     * realbespeaknum : 59   剩余预约车位数
+     * totalnum : 200    总车位数
+     * bespeaknum : 60   可预约车位总数
      * parkname : 河南视博测试车场
      * bespeaktimeout : 20
      * state : 1

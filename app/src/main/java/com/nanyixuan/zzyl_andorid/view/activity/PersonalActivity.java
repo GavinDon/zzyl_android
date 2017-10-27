@@ -125,9 +125,10 @@ public class PersonalActivity extends BaseActivity {
                         case 3:
                             gotoActivity(OrderListActivity.class);
                             break;
-                        case 4:
+                        case 4: //设置
 //                            setIntentData(Constant.URL.MY_TICKET);
 //                            ToastUtils.showShort("微信支付正在提交认证，暂不能查看");//车票订单
+                            gotoActivity(SettingActivity.class);
                             break;
                         case 5: //退出登陆
                             boolean isLogin= SPUtils.getInstance().getBoolean(Constant.SP_LOGIN);
@@ -230,7 +231,7 @@ public class PersonalActivity extends BaseActivity {
      */
     private void createRefund(AllOrderBean orderBean) {
 
-        Map<String, String> params = new HashMap();
+        Map<String, String> params = new HashMap<>();
         params.put("userId", orderBean.getUser_id());
         params.put("orderId", orderBean.getId());
         params.put("identityCode", orderBean.getIdentity_code());
@@ -269,7 +270,7 @@ public class PersonalActivity extends BaseActivity {
      * @param mCreateRefundBean
      */
     private void refund(CreatRefundBean mCreateRefundBean) {
-        Map<String, String> params = new HashMap();
+        Map<String, String> params = new HashMap<>();
         params.put("service", "unified.trade.refund");
         params.put("out_trade_no", mCreateRefundBean.getOrder_id()); //商户订单号 order_id
         params.put("transaction_id", mCreateRefundBean.getTransaction_id()); //平台订单号
@@ -307,7 +308,7 @@ public class PersonalActivity extends BaseActivity {
     private void refundDone(CreatRefundBean creatRefundBean) {
 
         //返回0退款退票成功 返回-1退票失败 返回-2已退票
-        Map<String, String> params = new HashMap();
+        Map<String, String> params = new HashMap<>();
         params.put("transaction_id", creatRefundBean.getTransaction_id()); //平台订单号
         params.put("out_trade_no", creatRefundBean.getOrder_id()); //商户订单号
         params.put("out_refund_no", creatRefundBean.getId()); //商户退款单号
@@ -338,7 +339,7 @@ public class PersonalActivity extends BaseActivity {
 
     private void createRefunds(AllOrderBean orderBean) {
 
-        final Map<String, String> params = new HashMap();
+        final Map<String, String> params = new HashMap<>();
         params.put("userId", orderBean.getUser_id());
         params.put("orderId", orderBean.getId());
         params.put("identityCode", orderBean.getIdentity_code());
@@ -354,7 +355,7 @@ public class PersonalActivity extends BaseActivity {
                             if (respCommon.getRetCode().equals("0")) {
                                 if (!TextUtils.isEmpty(respCommon.getRetData())) {
                                     CreatRefundBean b = JsonUtil.fromJson(respCommon.getRetData(), CreatRefundBean.class);
-                                    Map<String, String> params = new HashMap();
+                                    Map<String, String> params = new HashMap<>();
                                     params.put("transaction_id", b.getTransaction_id()); //平台订单号
                                     params.put("out_trade_no", b.getOrder_id()); //商户订单号
                                     params.put("out_refund_no", b.getId()); //商户退款单号

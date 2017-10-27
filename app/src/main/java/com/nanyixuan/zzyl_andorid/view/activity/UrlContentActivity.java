@@ -2,7 +2,6 @@ package com.nanyixuan.zzyl_andorid.view.activity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -18,23 +17,28 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.nanyixuan.zzyl_andorid.R;
 import com.nanyixuan.zzyl_andorid.api.Constant;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.uuzuche.lib_zxing.activity.CaptureActivity;
 import com.uuzuche.lib_zxing.activity.CodeUtils;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.Stack;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 import static com.nanyixuan.zzyl_andorid.R.id.webView;
 
@@ -53,6 +57,8 @@ public class UrlContentActivity extends AppCompatActivity {
     TextView tvError;
     @BindView(R.id.loading)
     AVLoadingIndicatorView avi;
+    @BindView(R.id.ll_loading)
+    LinearLayout mImageViewLoad; //园博吉祥物
     private String className;
     private String url;
 
@@ -88,12 +94,45 @@ public class UrlContentActivity extends AppCompatActivity {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
-                avi.show();
+                mImageViewLoad.setVisibility(View.GONE);
+                Observable.timer(200, TimeUnit.MILLISECONDS)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Consumer<Long>() {
+                            @Override
+                            public void accept(Long aLong) throws Exception {
+                                mImageViewLoad.setVisibility(View.VISIBLE);
+                                avi.show();
+                            }
+                        }, new Consumer<Throwable>() {
+                            @Override
+                            public void accept(Throwable throwable) throws Exception {
+                                ToastUtils.showShort(throwable.getMessage());
+                                mImageViewLoad.setVisibility(View.GONE);
+                            }
+                        });
+
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
-                avi.hide();
+
+                Observable.timer(200, TimeUnit.MILLISECONDS)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Consumer<Long>() {
+                            @Override
+                            public void accept(Long aLong) throws Exception {
+                                mImageViewLoad.setVisibility(View.GONE);
+                                avi.hide();
+                            }
+                        }, new Consumer<Throwable>() {
+                            @Override
+                            public void accept(Throwable throwable) throws Exception {
+                                ToastUtils.showShort(throwable.getMessage());
+                                mImageViewLoad.setVisibility(View.GONE);
+                            }
+                        });
             }
 
             @Override
@@ -101,6 +140,7 @@ public class UrlContentActivity extends AppCompatActivity {
                 super.onReceivedError(view, errorCode, description, failingUrl);
                 mWebView.setVisibility(View.GONE);
                 tvError.setVisibility(View.VISIBLE);
+                mImageViewLoad.setVisibility(View.GONE);
 
             }
 
@@ -131,6 +171,7 @@ public class UrlContentActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         mWebView.reload();// 暂停网页中正在播放的视频
+
 //        mWebView.clearCache(true);
 //        mWebView.clearHistory();
 //        mWebView.onPause();
@@ -140,7 +181,6 @@ public class UrlContentActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 
     class ChromeClient extends WebChromeClient {
@@ -168,7 +208,7 @@ public class UrlContentActivity extends AppCompatActivity {
             @Override
             public void accept(@NonNull Boolean aBoolean) throws Exception {
                 if (aBoolean) {
-                    startActivityForResult(new Intent(UrlContentActivity.this, CaptureActivity.class), Constant.REQUEST_CODE);
+                    startActivityForResult(new Intent(UrlContentActivity.this, QRCustomUiActivity.class), Constant.REQUEST_CODE);
                 } else {
                     Toast.makeText(UrlContentActivity.this, "此功能需要摄像头权限", Toast.LENGTH_SHORT).show();
                 }
@@ -199,6 +239,7 @@ public class UrlContentActivity extends AppCompatActivity {
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        cancleProgress();
         if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
             mWebView.goBack(); // goBack()表示返回WebView的上一页面
             //pop 的是当前页面的标题 所以Pop之后取栈中最后一个值
@@ -219,6 +260,7 @@ public class UrlContentActivity extends AppCompatActivity {
      */
     @OnClick({R.id.tv_url_close, R.id.tv_url_back})
     public void closeActivity(View view) {
+        cancleProgress();
         if (view.getId() == R.id.tv_url_back && mWebView.canGoBack()) {
             mWebView.goBack();
             if (titleStack.size() > 1) {
@@ -233,6 +275,16 @@ public class UrlContentActivity extends AppCompatActivity {
             }
             this.finish();
 
+        }
+    }
+
+    /**
+     * 取消进度条
+     */
+    private void cancleProgress() {
+        if (mImageViewLoad.getVisibility() == View.VISIBLE) {
+            mImageViewLoad.setVisibility(View.GONE);
+            avi.hide();
         }
     }
 }

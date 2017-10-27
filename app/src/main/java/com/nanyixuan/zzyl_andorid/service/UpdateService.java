@@ -13,7 +13,6 @@ import android.widget.RemoteViews;
 
 import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.nanyixuan.zzyl_andorid.R;
 import com.nanyixuan.zzyl_andorid.api.Constant;
 import com.nanyixuan.zzyl_andorid.api.newapi.MySubscriber;
 import com.nanyixuan.zzyl_andorid.api.newapi.RetrofitHelper;
@@ -62,28 +61,10 @@ public class UpdateService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (null!=intent){
             apkUrl=intent.getStringExtra(Constant.UPDATE_URL);
-//            createNotify();
             okDownLoadApk();
         }
         return START_NOT_STICKY;
 
-    }
-
-    private void createNotify() {
-        // 获取通知栏管理对象;
-        mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        builder = new Notification.Builder(this)
-                .setSmallIcon(R.mipmap.logo)
-                .setWhen(System.currentTimeMillis())
-                .setContentTitle("郑州园林更新")
-                .setContentText("下载中...")
-                .setContentIntent(PendingIntent.getActivity(this, 0, new Intent(Intent.ACTION_DELETE), 0));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            mNotification = builder.build();
-        } else {
-            mNotification = builder.getNotification();
-        }
-        mNotificationManager.notify(1, mNotification);
     }
 
     private File mSavefile;// 保存APK的文件路径

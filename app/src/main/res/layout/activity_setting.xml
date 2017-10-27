@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:background="@color/white"
+                                             android:orientation="vertical">
+
+    <include
+        android:id="@+id/setting_title"
+        layout="@layout/app_title"
+        />
+
+    <com.nanyixuan.zzyl_andorid.widgets.SwitchButton
+        android:id="@+id/sb_msg_push"
+        style="@style/SwitchButtonMD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        app:kswTextOff="OFF"
+        app:kswTextOn="ON"
+        app:kswTintColor="#16A560"
+        android:checked="true"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setting_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_msg_push"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:gravity="center_vertical"
+        android:text="消息推送"
+        android:textColor="@color/black_alpha_176"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/sb_msg_push"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/sb_msg_push"
+        />
+
+    <View
+        android:id="@+id/divide1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/gray"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_msg_push"
+        />
+
+    <com.nanyixuan.zzyl_andorid.widgets.SwitchButton
+        android:id="@+id/sb_gps"
+        style="@style/SwitchButtonMD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        app:kswTextOff="OFF"
+        app:kswTextOn="ON"
+        app:kswTintColor="#8bbca5"
+        android:checked="true"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divide1"
+        />
+
+    <TextView
+        android:id="@+id/tv_gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:gravity="center_vertical"
+        android:text="开启定位"
+        android:textColor="@color/black_alpha_176"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/sb_gps"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/sb_gps"
+        />
+
+</android.support.constraint.ConstraintLayout>

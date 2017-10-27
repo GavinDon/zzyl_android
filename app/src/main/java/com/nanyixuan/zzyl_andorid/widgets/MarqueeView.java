@@ -98,7 +98,7 @@ public class MarqueeView extends ViewFlipper {
         if (dpW == 0) {
             throw new RuntimeException("Please set MarqueeView width !");
         }
-        List list = new ArrayList();
+        List list = new ArrayList<>();
         if (noticeLength <= limit) {
             list.add(notice);
         } else {
