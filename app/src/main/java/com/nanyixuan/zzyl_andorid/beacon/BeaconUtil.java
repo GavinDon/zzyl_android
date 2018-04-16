@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.brtbeacon.sdk.BRTBeacon;
 import com.brtbeacon.sdk.BRTBeaconManager;
 import com.brtbeacon.sdk.BRTThrowable;
@@ -72,10 +73,11 @@ public class BeaconUtil {
                     public void onNext(BeaconBean beaconBean) throws IOException {
                         if (beaconBean != null) {
                             if (TextUtils.isEmpty(beaconBean.getUrl())) {
+                                ToastUtils.showShort(beaconBean.getLocaion2()+"==");
                                 //如果url 为空的话
-                                nofifyFun(title, "");
+                                nofifyFun(beaconBean.getLocaion2(), "");
                             } else {
-                                nofifyFun(title, beaconBean.getUrl());
+                                nofifyFun(beaconBean.getLocaion2(), beaconBean.getUrl());
                             }
                         }
 
@@ -157,7 +159,7 @@ public class BeaconUtil {
         builder.setAutoCancel(true); //用户点击后自动取消
         builder.setContentTitle(title);
         builder.setVibrate(new long[]{500L, 200L, 200L, 500L}); //带振动
-        builder.setContentText(url);
+//        builder.setContentText(url);
         //API16之后获取Notification对象的方法
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             notification = builder.build();

@@ -172,8 +172,8 @@ public class ApiManager {
      * @param apiObserver 网络监听。
      * @param context     Context你懂得。
      */
-    public static void getMainBottomList(int page, int size, Context context, ApiObserver<BaseData<PagerData<List<MainListData>>>> apiObserver) {
-        Observable<BaseData<PagerData<List<MainListData>>>> observable =
+    public static void getMainBottomList(int page, int size, Context context, ApiObserver<MainListData> apiObserver) {
+        Observable<MainListData> observable =
                 apiService.getMainBottomList(page, size)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread());

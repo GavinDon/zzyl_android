@@ -44,7 +44,7 @@ public class MainActivity extends BaseActivity implements MainActivityController
     protected void initView(Bundle savedInstanceState) {
         MainPresenter.init(this);
         showFragment(MainContentFragment.TAG, MainContentFragment.newInstance());
-        if (SPUtils.getInstance().getBoolean(Constant.SP_MSG_PUSH,true)) {
+        if (SPUtils.getInstance().getBoolean(Constant.SP_MSG_PUSH, true)) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 beacon = new BeaconUtil(MainActivity.this);
                 checkBluetoothValid();
@@ -66,19 +66,6 @@ public class MainActivity extends BaseActivity implements MainActivityController
 
     @Override
     public void initMainActivity(LoginBean userInfoData) {
-//        if (userInfoData.getUser() != null) {
-//            reqLogin(userInfoData.getUser().getUsername(), userInfoData.getUser().getPassword());
-//        }
-        RxPermissions rxPermissions = new RxPermissions(this);
-        rxPermissions.request(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
-                .subscribe(new Consumer<Boolean>() {
-                    @Override
-                    public void accept(Boolean aBoolean) throws Exception {
-                        if (aBoolean) {
-
-                        }
-                    }
-                });
     }
 
     @Override

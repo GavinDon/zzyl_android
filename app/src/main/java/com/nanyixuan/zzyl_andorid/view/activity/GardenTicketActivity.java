@@ -124,8 +124,8 @@ public class GardenTicketActivity extends BaseActivity {
      */
     private void initRecycler() {
         dataBeanList = new ArrayList<>();
-        String parentContent[] = {"购买须知:", "温馨提示:"};
-        String childContent[] = {getResources().getString(R.string.buy_notice), getResources().getString(R.string.prompt),};
+        String parentContent[] = {"购买须知:", "温馨提示:","购票条款:"};
+        String childContent[] = {getResources().getString(R.string.buy_notice), getResources().getString(R.string.prompt),getResources().getString(R.string.buy_clause)};
         for (int i = 0; i < parentContent.length; i++) {
             dataBean = new DataBean();
             dataBean.setID(i + "");

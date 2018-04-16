@@ -72,6 +72,7 @@ public class RegisterActivity extends BaseActivity {
     private String phone;
     Map<String, String> phoneCode = new HashMap<>();
     private String whoPage;
+    private String localSmsCode;//本地生成的五位随机数
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -96,8 +97,9 @@ public class RegisterActivity extends BaseActivity {
      */
     private void getSmsCode() {
         countDownTime(60); //倒计时60s
+        localSmsCode = MyTools.noneStr();
         ApiManager.mRetrofit.create(ApiService.class)
-                .getSms(etRegisterPhone.getText().toString(), String.format(" 您申请的验证码为:%s ,请于十分钟内输入使用。温馨提醒：网络购票后，请务必携带二代身份证刷卡入园。",MyTools.noneStr()))
+                .getSms(etRegisterPhone.getText().toString(), String.format(" 您申请的验证码为:%s ,请于十分钟内输入使用。温馨提醒：网络购票后，请务必携带二代身份证刷卡入园。", localSmsCode))
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -106,8 +108,13 @@ public class RegisterActivity extends BaseActivity {
                                 String resp = response.body().string();
                                 JSONObject jsonObject = new JSONObject(resp);
                                 if (jsonObject.getBoolean("flag")) {
-                                    smsCode = jsonObject.getString("code");
+//                                    smsCode = jsonObject.getString("code");
+                                    smsCode = localSmsCode;
                                     phoneCode.put(phone, smsCode);
+//                                    Intent intent=new Intent(RegisterActivity.this,SmsCountDownService.class);
+//                                    intent.putExtra("smsCode",smsCode);
+//                                    startService(intent);
+
                                 }
                             }
                         } catch (IOException e) {
@@ -262,14 +269,15 @@ public class RegisterActivity extends BaseActivity {
                     public void onSubscribe(@NonNull Disposable d) {
                         disposable = d;
                     }
+
                     @Override
                     public void onNext(@NonNull Long aLong) {
-                            if (0 == aLong) {
-                                tvSmsTimer.setText("获取验证码");
-                                tvSmsTimer.setClickable(true);
-                            } else {
-                                tvSmsTimer.setText(String.format(Locale.getDefault(), "%d重新获取验证码", aLong));
-                                tvSmsTimer.setClickable(false);
+                        if (0 == aLong) {
+                            tvSmsTimer.setText("获取验证码");
+                            tvSmsTimer.setClickable(true);
+                        } else {
+                            tvSmsTimer.setText(String.format(Locale.getDefault(), "%d重新获取验证码", aLong));
+                            tvSmsTimer.setClickable(false);
                         }
                     }
 
@@ -277,6 +285,7 @@ public class RegisterActivity extends BaseActivity {
                     public void onError(@NonNull Throwable e) {
                         ToastUtils.showShort(e.getMessage());
                     }
+
                     @Override
                     public void onComplete() {
                     }
@@ -317,7 +326,7 @@ public class RegisterActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (disposable != null ) {
+        if (disposable != null) {
             disposable.dispose();
         }
     }

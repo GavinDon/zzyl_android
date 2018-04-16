@@ -43,10 +43,10 @@ public class MainContentFragmentPresenter {
             }
         });
 
-        ApiManager.getMainBottomList(1, 10, context, new ApiObserver<BaseData<PagerData<List<MainListData>>>>() {
+        ApiManager.getMainBottomList(1, 10, context, new ApiObserver<MainListData>() {
             @Override
-            public void onSuccess(BaseData<PagerData<List<MainListData>>> tBaseData) {
-                mainContentFragmentController.setBottomList(tBaseData.getData().getContent());
+            public void onSuccess(MainListData tBaseData) {
+                mainContentFragmentController.setBottomList(tBaseData);
             }
 
             @Override

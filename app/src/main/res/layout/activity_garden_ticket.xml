@@ -252,6 +252,21 @@
                     app:layout_constraintLeft_toLeftOf="parent" />
             </android.support.design.widget.TextInputLayout>
 
+            <TextView
+                android:id="@+id/tv_goGarden_prompt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="网络购票后,请携带二代身份证刷卡入园"
+                android:drawableLeft="@mipmap/prompt"
+                app:layout_constraintLeft_toLeftOf="@+id/card01"
+                app:layout_constraintRight_toRightOf="@+id/card01"
+                app:layout_constraintTop_toBottomOf="@+id/tilAgainIdCard"
+                android:layout_marginLeft="8dp"
+                android:textColor="#d81e06"
+                android:drawablePadding="4dp"
+                android:textSize="14sp"
+                />
+
             <android.support.v7.widget.AppCompatCheckBox
                 android:id="@+id/checkBox"
                 android:layout_width="0dp"
@@ -263,7 +278,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="@+id/card01"
                 app:layout_constraintRight_toRightOf="@+id/card01"
-                app:layout_constraintTop_toBottomOf="@+id/tilAgainIdCard" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_goGarden_prompt" />
 
             <View
                 android:id="@+id/ticket_divider2"

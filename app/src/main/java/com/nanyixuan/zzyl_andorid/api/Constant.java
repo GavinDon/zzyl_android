@@ -57,13 +57,14 @@ public class Constant {
         //-----------------------分割线 ------------------------------
         public static final String tourRaouteInfo = BASEURL_HTML + "zz/xianlutuijianxiangqing.html"; //线路推荐详情
         public static final String GARDEN_NEWS = BASEURL_HTML + "zz/yuanbodongtai.html"; //园博资讯
+//        public static final String MARQUUE_VIEW = "http://mp.weixin.qq.com/s/SAp4JaZPYTDGGB3S35fwzg"; //
         public static final String FACILITIES_CLASS = BASEURL_HTML + "zz/zhanyuanfenlei.html"; //场馆分类
         public static final String PLANT_WIKI = BASEURL_HTML + "zz/zhiwubaikelei.html";//植物百科
         public static final String ROUTER_RECOMMEND = BASEURL_HTML + "zz/xianlutuijian.html";//线路推荐
         public static final String LOST_FIND = BASEURL_HTML + "zz/shiwuzhaolinglei.html";//失物招领
-        public static final String COMPLAINT_ADVICE = BASEURL_HTML + "zz/yijiantousuApp.html";//投诉建议
+        public static final String COMPLAINT_ADVICE = BASEURL_HTML + "zzyb/youkezhuanqu.html";//投诉建议
         public static final String GARDEN_GUIDE = BASEURL_HTML + "zz/youyuandaolan.html";//园区导览
-        public static final String ARROUND_SERVER = BASEURL_HTML + "zz/zhoubianfuwu.html"; //周边服务
+        public static final String ARROUND_SERVER = BASEURL_HTML + "zzzbfw/app.html"; //周边服务
         public static final String FIND_GAME = BASEURL_HTML + "zz/xungenyouxi.html";//寻根游戏http://zhihui.expo2017.net.cn/xg/xungenyouxi.html
         public static final String MY_STEP = BASEURL_HTML + "zz/wodezuji.html";  //我的足迹
         public static final String MY_MSG = BASEURL_HTML + "zz/yijiantousu2.html";  //我的消息

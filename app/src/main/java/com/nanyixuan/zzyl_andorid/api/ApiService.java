@@ -25,7 +25,6 @@ import java.util.Map;
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -60,7 +59,7 @@ public interface ApiService {
     Observable<BaseData<PagerData<List<GoodsData>>>> getGoodsList(@Query("id") String id, @Query("page") int page, @Query("size") int size);
 
     @GET("zzwhe/resources/ybzx/hotList")
-    Observable<BaseData<PagerData<List<MainListData>>>> getMainBottomList(@Query("page") int page, @Query("size") int size);
+    Observable<MainListData> getMainBottomList(@Query("page") int page, @Query("size") int size);
 
 //    @GET("zzwhe/resources/yqdlGcyq/list")
 //    Observable<BaseData<PagerData<List<VenueData>>>> getVenueDataList(@Query("lx") int lx, @Query("page") int page, @Query("size") int size);

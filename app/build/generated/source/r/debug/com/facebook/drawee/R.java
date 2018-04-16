@@ -33,21 +33,21 @@ public final class R {
         public static final int roundingBorderColor = 0x7f030174;
         public static final int roundingBorderPadding = 0x7f030175;
         public static final int roundingBorderWidth = 0x7f030176;
-        public static final int viewAspectRatio = 0x7f0301d8;
+        public static final int viewAspectRatio = 0x7f0301db;
     }
     public static final class id {
         public static final int center = 0x7f08004e;
         public static final int centerCrop = 0x7f08004f;
         public static final int centerInside = 0x7f080050;
-        public static final int fitCenter = 0x7f0800b6;
-        public static final int fitEnd = 0x7f0800b7;
-        public static final int fitStart = 0x7f0800b8;
-        public static final int fitXY = 0x7f0800b9;
-        public static final int focusCrop = 0x7f0800c2;
-        public static final int none = 0x7f080119;
+        public static final int fitCenter = 0x7f0800b7;
+        public static final int fitEnd = 0x7f0800b8;
+        public static final int fitStart = 0x7f0800b9;
+        public static final int fitXY = 0x7f0800ba;
+        public static final int focusCrop = 0x7f0800c3;
+        public static final int none = 0x7f08011a;
     }
     public static final class styleable {
-        public static final int[] GenericDraweeHierarchy = { 0x7f030022, 0x7f03002e, 0x7f030095, 0x7f030096, 0x7f030097, 0x7f03013f, 0x7f03014c, 0x7f03014d, 0x7f030152, 0x7f030154, 0x7f030155, 0x7f030156, 0x7f030169, 0x7f03016a, 0x7f03016d, 0x7f03016e, 0x7f03016f, 0x7f030170, 0x7f030171, 0x7f030172, 0x7f030173, 0x7f030174, 0x7f030175, 0x7f030176, 0x7f0301d8 };
+        public static final int[] GenericDraweeHierarchy = { 0x7f030022, 0x7f03002e, 0x7f030095, 0x7f030096, 0x7f030097, 0x7f03013f, 0x7f03014c, 0x7f03014d, 0x7f030152, 0x7f030154, 0x7f030155, 0x7f030156, 0x7f030169, 0x7f03016a, 0x7f03016d, 0x7f03016e, 0x7f03016f, 0x7f030170, 0x7f030171, 0x7f030172, 0x7f030173, 0x7f030174, 0x7f030175, 0x7f030176, 0x7f0301db };
         public static final int GenericDraweeHierarchy_actualImageScaleType = 0;
         public static final int GenericDraweeHierarchy_backgroundImage = 1;
         public static final int GenericDraweeHierarchy_fadeDuration = 2;

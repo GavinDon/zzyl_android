@@ -1,8 +1,11 @@
 package com.nanyixuan.zzyl_andorid.view.fragment;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -41,7 +44,6 @@ import com.nanyixuan.zzyl_andorid.presenter.TourRouteFragmentPresenter;
 import com.nanyixuan.zzyl_andorid.utils.JsonUtil;
 import com.nanyixuan.zzyl_andorid.utils.LocalImageHolderView;
 import com.nanyixuan.zzyl_andorid.utils.ToolAES;
-import com.nanyixuan.zzyl_andorid.view.activity.AccountInfoActivity;
 import com.nanyixuan.zzyl_andorid.view.activity.LoginActivity;
 import com.nanyixuan.zzyl_andorid.view.activity.OrderListActivity;
 import com.nanyixuan.zzyl_andorid.view.activity.PersonalActivity;
@@ -65,6 +67,7 @@ import butterknife.OnClick;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 import static com.nanyixuan.zzyl_andorid.utils.JsonUtil.fromJson;
@@ -190,7 +193,7 @@ public class MainContentFragment extends BaseFragment implements MainContentFrag
             public void onClick(View v) {
                 if (isLogin) {
                     //如果已经登陆跳转到帐号信息页面
-                    gotoActivity(AccountInfoActivity.class);
+                    gotoActivity(PersonalActivity.class);
                 } else {
                     //没有登陆跳转到登陆页
                     Intent intent = new Intent(MainContentFragment.this.getActivity(), LoginActivity.class);
@@ -255,23 +258,39 @@ public class MainContentFragment extends BaseFragment implements MainContentFrag
      * @param mainListDatas
      */
     @Override
-    public void setBottomList(final List<MainListData> mainListDatas) {
+    public void setBottomList(final MainListData mainListDatas) {
         List<String> info = new ArrayList<>();
-        for (int i = 0; i < mainListDatas.size(); i++) {
-            info.add(mainListDatas.get(i).getMc());
-        }
+//        for (int i = 0; i < mainListDatas.size(); i++) {
+//            info.add(mainListDatas.get(i).getMsg());
+//        }
+        if (mainListDatas.getMsg().equals("success")) {
+            for (int i = 0; i < mainListDatas.getData().getContent().size(); i++) {
 
-        marqueeView.startWithList(info);
-        marqueeView.setOnItemClickListener(new MarqueeView.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position, TextView textView) {
-                Bundle bundle = new Bundle();
-                bundle.putString("url", Constant.URL.GARDEN_NEWS + "?id=" + mainListDatas.get(position).getId());
-                Intent intent = new Intent(getActivity(), UrlContentActivity.class);
-                intent.putExtra("data", bundle);
-                startActivity(intent);
+                info.add(mainListDatas.getData().getContent().get(i).getMc());
             }
-        });
+            marqueeView.startWithList(info);
+            marqueeView.setOnItemClickListener(new MarqueeView.OnItemClickListener() {
+                @Override
+                public void onItemClick(int position, TextView textView) {
+                    Bundle bundle = new Bundle();
+                    String httpURL = mainListDatas.getData().getContent().get(position).getXq();
+                    String httpXq[]=httpURL.split("\"");
+                    if (httpXq.length>1){
+                        bundle.putString("url",httpXq[1]);
+                        Intent intent = new Intent(getActivity(), UrlContentActivity.class);
+                        intent.putExtra("data", bundle);
+                        startActivity(intent);
+                    }else {
+                        bundle.putString("url",Constant.URL.GARDEN_NEWS);
+                        Intent intent = new Intent(getActivity(), UrlContentActivity.class);
+                        intent.putExtra("data", bundle);
+                        startActivity(intent);
+                    }
+
+
+                }
+            });
+        }
     }
 
     @Override
@@ -343,7 +362,7 @@ public class MainContentFragment extends BaseFragment implements MainContentFrag
      */
     private void initGrid() {
         //网格文字与对应的图片level
-        String arrayGrids[][] = {{"园博活动", "20"}, {"游园导览", "60"}, {"植物百科", "50"}, {"展园介绍", "10"}, {"网上购票", "40"}, {"虚拟游园", "30"}, {"智慧停车", "70"}, {"投诉建议", "80"}};
+        String arrayGrids[][] = {{"园博活动", "20"}, {"游园导览", "60"}, {"植物百科", "50"}, {"展园介绍", "10"}, {"网上购票", "40"}, {"虚拟游园", "30"}, {"智慧停车", "70"}, {"游客专区", "80"}};
         List<SparseArray<String>> gridList = new ArrayList<>();
         for (int i = 0; i < arrayGrids.length; i++) {
             SparseArray<String> sa = new SparseArray<>();
@@ -474,7 +493,8 @@ public class MainContentFragment extends BaseFragment implements MainContentFrag
                 break;
             case 1:
 //                setIntentData(Constant.URL.GARDEN_GUIDE); //游园导览
-                setIntentData("http://zhihui.expo2017.net.cn:8099/main/mobile.html"); //游园导览
+//                setIntentData("http://zhihui.expo2017.net.cn:8099/main/mobile.html"); //游园导览
+                setPermissions();
                 break;
             case 2:
                 setIntentData(Constant.URL.PLANT_WIKI);//植物百科
@@ -558,5 +578,42 @@ public class MainContentFragment extends BaseFragment implements MainContentFrag
         startActivity(intent);
     }
 
+    /**
+     * 打开权限进行游园导览
+     */
+    private void setPermissions() {
+        RxPermissions rxPermissions = new RxPermissions(this.getActivity());
+        rxPermissions.request(Manifest.permission.ACCESS_COARSE_LOCATION)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) throws Exception {
+                        if (aBoolean) {
+                            setIntentData("http://zhihui.expo2017.net.cn:8099/main/mobile.html"); //游园导览
+                        } else {
+                            AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainContentFragment.this.getActivity()).setPositiveButton("是", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                    Intent localIntent = new Intent();
+                                    localIntent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                                    localIntent.setData(Uri.fromParts("package", MainContentFragment.this.getActivity().getPackageName(), null));
+                                    startActivity(localIntent);
+                                }
+                            }).setNegativeButton("否", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).setMessage("您拒绝打开定位权限将不能使用地图导览，去设置").setTitle("设置权限");
+                            alertDialog.show();
+                        }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        ToastUtils.showShort(throwable.getMessage());
+                    }
+                });
+    }
 
 }

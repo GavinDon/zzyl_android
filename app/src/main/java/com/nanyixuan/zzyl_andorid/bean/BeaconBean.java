@@ -21,6 +21,9 @@ public class BeaconBean {
     private String code;
     private String equipment;
     private String location;
+
+
+    private String locaion2;
     private int id;
     private String url;
 
@@ -30,6 +33,14 @@ public class BeaconBean {
 
     public void setEquipment2(String equipment2) {
         this.equipment2 = equipment2;
+    }
+
+    public String getLocaion2() {
+        return locaion2;
+    }
+
+    public void setLocaion2(String locaion2) {
+        this.locaion2 = locaion2;
     }
 
     public String getCode() {

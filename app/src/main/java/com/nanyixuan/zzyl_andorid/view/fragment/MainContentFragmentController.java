@@ -15,5 +15,5 @@ import java.util.List;
 public interface MainContentFragmentController {
 
     void setLooperView(List<MainLooperData> imgs);
-    void setBottomList(List<MainListData> mainListDatas);
+    void setBottomList(MainListData mainListDatas);
 }
